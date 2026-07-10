@@ -1,13 +1,16 @@
 const express = require('express');
 const Routes = express.Router();
-const userController = require('../controllers/user.controller');
+const UserController = require('../controllers/user.controller');
+const userController = new UserController();
 
-Routes.get('/', userController.getUser);
-Routes.post('/create', userController.createUser);
-Routes.put('/update', userController.updateUser);
-Routes.delete('/delete', userController.deleteUser);    
-Routes.get('/get/id/:id', userController.getUserById);
-Routes.put('/update/:id', userController.updateUserById);
- Routes.delete('/delete', userController.deleteUser);
+Routes.get('/', userController.getUser.bind(userController));
+Routes.post('/create', userController.createUser.bind(userController));
+Routes.post('/seed', userController.seedUsers.bind(userController));
+Routes.post('/seed/:count', userController.seedUsers.bind(userController));
+Routes.get('/seed10', userController.seedUsers.bind(userController));
+Routes.put('/update', userController.updateUser.bind(userController));
+Routes.delete('/:id', userController.deleteUser.bind(userController));
+Routes.get('/:id', userController.getUserById.bind(userController));
+Routes.put('/:id', userController.updateUserById.bind(userController));
 
 module.exports = Routes;

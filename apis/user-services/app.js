@@ -16,6 +16,8 @@ connectDB().then(() => {
 });
 
 app.use('/user', userRoutes);
+// alias plural route to support clients using /users
+app.use('/users', userRoutes);
 app.get('/', (req, res) => {
   res.send('User services is running');
 });
