@@ -1,0 +1,12 @@
+const express = require('express'); 
+const router = express.Router();
+const DoctorController = require('../controllers/doctor.controller');
+const doctorController = new DoctorController();    
+router.get('/', doctorController.getDoctor.bind(doctorController));
+router.post('/create', doctorController.createDoctor.bind(doctorController));
+router.post('/seed', doctorController.seedDoctors.bind(doctorController));
+router.post('/seed/:count', doctorController.seedDoctors.bind(doctorController));
+router.get('/:id', doctorController.getDoctorById.bind(doctorController));
+router.put('/:id', doctorController.updateDoctor.bind(doctorController));
+router.delete('/:id', doctorController.deleteDoctor.bind(doctorController));
+module.exports = router;
