@@ -13,8 +13,7 @@ services:
       - doctor-service
       - billing-service
       - appointment-service
-      - analytics-service
-      - notification-service
+
 
   user-service:
     build:
@@ -44,16 +43,4 @@ services:
     ports:
       - "3004:3004"
 
-  analytics-service:
-    build:
-      context: ./apis/analytics-service
-    container_name: analytics-service
-    ports:
-      - "3005:3005"
-
-  notification-service:
-    build:
-      context: ./apis/notification-service
-    container_name: notification-service
-    ports:
-      - "3006:3006"
+  

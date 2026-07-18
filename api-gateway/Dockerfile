@@ -5,4 +5,4 @@ RUN npm install --omit=dev
 COPY . .
 ENV PORT=4000
 EXPOSE 4000
-CMD ["node", "app.js"]
+CMD ["node", "app.js","--","--host","0.0.0.0"]
